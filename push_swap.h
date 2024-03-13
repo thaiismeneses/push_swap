@@ -18,9 +18,16 @@
 # include "libraries/ft_printf/ft_printf.h"
 # include <stdlib.h>
 
+typedef struct s_stack
+{
+    int data;
+    struct s_stack *next;
+}   t_stack;
 
 int	param_check(char *str);
 int	validating(long nbr);
+int	has_duplicate(t_stack *stack_a, int nbr);
+void	free_list(t_stack *stack_a);
 
 #endif
 

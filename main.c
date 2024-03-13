@@ -18,6 +18,19 @@ int	validating(long nbr)
 		return (-1);
 	return (0);
 }
+int	has_duplicate(t_stack *stack_a, int nbr)
+{
+	t_stack	*current;
+
+	current = stack_a;
+	while (current != NULL)
+	{
+		if (current->data == nbr)
+			return (1);	
+		current = current->next;	
+	}
+	return (0);
+}
 
 int	param_check(char *str)
 {
@@ -40,10 +53,23 @@ int	param_check(char *str)
 	return (nbr);
 }
 
+void	free_list(t_stack *stack_a)
+{
+	t_stack	*current = stack_a;
+	while (current != NULL)
+	{
+		t_stack *temp = current;
+		current = current->next;
+		free(temp);
+	}
+}
 
 int	main(int argc, char **argv)
 {
 	int	i;
+	int nbr;
+	t_stack	*stack_a = NULL;
+	//t_stack	*stack_b;
 
 	i = 1;
 	if (argc < 2)
@@ -52,10 +78,22 @@ int	main(int argc, char **argv)
 	{
 		while (argv[i])
 		{
-			param_check(argv[i]);
+			nbr = param_check(argv[i]);
+			if ((has_duplicate(stack_a, nbr)) == 0)
+			{
+				t_stack	*new_node = (t_stack *)malloc(sizeof(t_stack));
+				new_node->data = nbr;
+				new_node->next = NULL;
+				ft_lstadd_back((t_list **)&stack_a, (t_list *)new_node);
+			}
+			else
+			{
+				ft_printf("Error\n");
+				exit(-1);
+			}
 			i++;
 		}
-		
 	}
+	free_list(stack_a);
 	return(0);
 }

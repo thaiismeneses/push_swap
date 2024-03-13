@@ -32,7 +32,7 @@ all:	$(NAME)
 
 $(NAME): $(OBJS)
 		@echo "Compilation of $(NAME)!!!"
-		@make -s -C libraries/libft/
+		@make -s bonus -C libraries/libft/
 		@make -s -C libraries/ft_printf/
 		@$(CC) $(FLAGS) $(SRCS) $(LIBS) -o $(NAME)
 		@echo "$(NAME) created!!✔️ "
@@ -54,7 +54,7 @@ fclean:
 re:		fclean all
 
 leak:
-		$(LEAK) ./checker  
+		$(LEAK) ./push_swap 1 2 3  
 
 norma:
 		norminette $(SRCS) push_swap.h ./libraries
