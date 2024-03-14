@@ -12,7 +12,8 @@
 
 NAME		:= push_swap
 
-SRCS		:= main.c
+SRCS		:= main.c\
+				swap.c\
 
 OBJS		:= $(SRCS: .c=.o)
 

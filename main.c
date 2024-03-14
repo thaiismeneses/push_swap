@@ -14,10 +14,11 @@
 
 int	validating(long nbr)
 {
-	if (nbr > 2147483646 || nbr < -2147483646)
+	if (nbr > 2147483647 || nbr < -2147483648)
 		return (-1);
 	return (0);
 }
+
 int	has_duplicate(t_stack *stack_a, int nbr)
 {
 	t_stack	*current;
@@ -64,18 +65,29 @@ void	free_list(t_stack *stack_a)
 	}
 }
 
+void	print_list(t_stack *stack_a)
+{
+	t_stack	*current = stack_a;
+	while (current != NULL)
+	{
+		ft_printf("swap: %d\n", current->data);
+		current = current->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	int	i;
 	int nbr;
 	t_stack	*stack_a = NULL;
-	//t_stack	*stack_b;
+	t_stack	*stack_b = NULL;
 
 	i = 1;
 	if (argc < 2)
 		exit (-1);
 	else
 	{
+		
 		while (argv[i])
 		{
 			nbr = param_check(argv[i]);
@@ -93,6 +105,8 @@ int	main(int argc, char **argv)
 			}
 			i++;
 		}
+		swap(&stack_a);
+		print_list(stack_a);
 	}
 	free_list(stack_a);
 	return(0);

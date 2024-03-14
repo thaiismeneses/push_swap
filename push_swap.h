@@ -28,6 +28,10 @@ int	param_check(char *str);
 int	validating(long nbr);
 int	has_duplicate(t_stack *stack_a, int nbr);
 void	free_list(t_stack *stack_a);
+void swap(t_stack **stack);
+void	print_list(t_stack *stack_a);
+void    push(t_stack **stack_a, t_stack **stack_b);
+void add_node(t_stack **stack_b, int data);
+
 
 #endif
-
