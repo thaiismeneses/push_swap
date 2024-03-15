@@ -33,15 +33,30 @@ int	has_duplicate(t_stack *stack, int nbr)
 	return (0);
 }
 
+int is_in_order(t_stack *stack)
+{
+	t_stack *current;
+
+    current = stack;
+    while (current != NULL && current->next != NULL)
+	{
+        if (current->data > current->next->data) 
+		{
+            return (0);
+        }
+        current = current->next;
+    }
+    return (1);
+}
+
+
 int	param_check(char *str)
 {
 	long	nbr;
 	int	i;
+
 	i = 0;
-	if (str[i] == '-')
-		i++;
-	//ft_putnbr_fd(nbr, 1);
-	if (ft_isdigit(str[i]) == 0)
+	if (ft_isalpha(str[i]) == 1)
 	{
 		ft_printf("not numeric\n");
 		ft_printf("Error\n");

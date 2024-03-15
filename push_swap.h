@@ -27,6 +27,7 @@ typedef struct s_stack
 int	param_check(char *str);
 int	validating(long nbr);
 int	has_duplicate(t_stack *stack, int nbr);
+int is_in_order(t_stack *stack);
 void	free_list(t_stack *stack);
 void    swap(t_stack **stack);
 void	print_list(t_stack *stack);

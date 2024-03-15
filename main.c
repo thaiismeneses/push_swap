@@ -63,6 +63,11 @@ int	main(int argc, char **argv)
 			}
 			i++;
 		}
+		if(is_in_order(stack_a) == 1)
+		{
+			ft_printf("Error: is in order\n");
+			exit(-1);
+		}
 		//swap(&stack_a);
 		/*
 		push(&stack_a, &stack_b);
