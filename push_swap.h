@@ -26,12 +26,24 @@ typedef struct s_stack
 
 int	param_check(char *str);
 int	validating(long nbr);
-int	has_duplicate(t_stack *stack_a, int nbr);
-void	free_list(t_stack *stack_a);
-void swap(t_stack **stack);
-void	print_list(t_stack *stack_a);
-void    push(t_stack **stack_a, t_stack **stack_b);
-void add_node(t_stack **stack_b, int data);
-
+int	has_duplicate(t_stack *stack, int nbr);
+void	free_list(t_stack *stack);
+void    swap(t_stack **stack);
+void	print_list(t_stack *stack);
+void    push(t_stack **stack_src, t_stack **stack_dest);
+void    add_node(t_stack **stack, int data);
+void    rotate(t_stack **stack);
+void    reverse_rotate(t_stack **stack);
+void    sa(t_stack **stack_a);
+void    sb(t_stack **stack_b);
+void    ss(t_stack **stack_a, t_stack **stack_b);
+void    pa(t_stack **stack_b, t_stack **stack_a);
+void    pb(t_stack **stack_a, t_stack **stack_b);
+void    ra(t_stack **stack_a);
+void    rb(t_stack **stack_b);
+void    rr(t_stack **stack_a, t_stack **stack_b);
+void    rra(t_stack **stack_a);
+void    rrb(t_stack **stack_b);
+void    rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

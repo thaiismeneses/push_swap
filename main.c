@@ -12,51 +12,9 @@
 
 #include "push_swap.h"
 
-int	validating(long nbr)
+void	free_list(t_stack *stack)
 {
-	if (nbr > 2147483647 || nbr < -2147483648)
-		return (-1);
-	return (0);
-}
-
-int	has_duplicate(t_stack *stack_a, int nbr)
-{
-	t_stack	*current;
-
-	current = stack_a;
-	while (current != NULL)
-	{
-		if (current->data == nbr)
-			return (1);	
-		current = current->next;	
-	}
-	return (0);
-}
-
-int	param_check(char *str)
-{
-	long	nbr;
-	int	i;
-	i = 0;
-	if (str[i] == '-')
-		i++;
-	//ft_putnbr_fd(nbr, 1);
-	if (ft_isdigit(str[i]) == 0)
-	{
-		ft_printf("not numeric\n");
-		ft_printf("Error\n");
-		exit(-1);
-	}
-	nbr = ft_atoi(str);
-	ft_printf("%d\n", nbr);	
-	if (validating(nbr) == -1)
-		ft_printf("Error\n");
-	return (nbr);
-}
-
-void	free_list(t_stack *stack_a)
-{
-	t_stack	*current = stack_a;
+	t_stack	*current = stack;
 	while (current != NULL)
 	{
 		t_stack *temp = current;
@@ -65,9 +23,9 @@ void	free_list(t_stack *stack_a)
 	}
 }
 
-void	print_list(t_stack *stack_a)
+void	print_list(t_stack *stack)
 {
-	t_stack	*current = stack_a;
+	t_stack	*current = stack;
 	while (current != NULL)
 	{
 		ft_printf("swap: %d\n", current->data);
@@ -80,7 +38,7 @@ int	main(int argc, char **argv)
 	int	i;
 	int nbr;
 	t_stack	*stack_a = NULL;
-	t_stack	*stack_b = NULL;
+	//t_stack	*stack_b = NULL;
 
 	i = 1;
 	if (argc < 2)
@@ -105,9 +63,17 @@ int	main(int argc, char **argv)
 			}
 			i++;
 		}
-		swap(&stack_a);
+		//swap(&stack_a);
+		/*
+		push(&stack_a, &stack_b);
+		ft_printf("Stack A: \n");
+		print_list(stack_a);
+		ft_printf("Stack B: \n");
+		print_list(stack_b);*/
+		reverse_rotate(&stack_a);
 		print_list(stack_a);
 	}
 	free_list(stack_a);
+	//free_list(stack_b);
 	return(0);
 }

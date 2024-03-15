@@ -13,7 +13,11 @@
 NAME		:= push_swap
 
 SRCS		:= main.c\
-				swap.c\
+				param_checker.c\
+				moviments.c\
+				operations_a.c\
+				operations_b.c\
+				operations_both.c\
 
 OBJS		:= $(SRCS: .c=.o)
 

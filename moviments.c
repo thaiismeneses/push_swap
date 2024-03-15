@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-void swap(t_stack **stack)
+void    swap(t_stack **stack)
 {
     int temp;
 
@@ -26,7 +26,7 @@ void swap(t_stack **stack)
     (*stack)->next->data = temp;
 }
 
-void add_node(t_stack **stack_b, int data) 
+void    add_node(t_stack **stack, int data) 
 {
     t_stack *new_node;
     
@@ -36,16 +36,44 @@ void add_node(t_stack **stack_b, int data)
         exit(-1);
     }
     new_node->data = data;
-    new_node->next = *stack_b;
-    *stack_b = new_node;
+    new_node->next = *stack;
+    *stack = new_node;
 }
 
-void    push(t_stack **stack_a, t_stack **stack_b)
+void    push(t_stack **stack_src, t_stack **stack_dest)
 {
     t_stack *temp;
 
-    temp = (*stack_a);
-    (*stack_a) = (*stack_a)->next;
-    temp->next = (*stack_b);
-    (*stack_b) = (temp);
+    temp = (*stack_src);
+    (*stack_src) = (*stack_src)->next;
+    temp->next = (*stack_dest);
+    (*stack_dest) = (temp);
+}
+
+void    rotate(t_stack **stack)
+{
+    t_stack *last;
+
+    last = (*stack);
+    while (last->next != NULL)
+        last = last->next;
+    last->next = (*stack);
+    (*stack) = (*stack)->next;
+    last->next->next = NULL;
+}
+
+void    reverse_rotate(t_stack **stack)
+{
+    t_stack *last;
+    t_stack *preview;
+
+    last = (*stack);
+    while (last->next != NULL)
+    {
+        preview = last;
+        last = last->next;
+    }
+    last->next = (*stack);
+    (*stack) = last;
+    preview->next = NULL;
 }
