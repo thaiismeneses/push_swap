@@ -58,6 +58,7 @@ int	main(int argc, char **argv)
 			}
 			else
 			{
+				//ft_printf("has duplicated");
 				ft_printf("Error\n");
 				exit(-1);
 			}
@@ -65,7 +66,8 @@ int	main(int argc, char **argv)
 		}
 		if(is_in_order(stack_a) == 1)
 		{
-			ft_printf("Error: is in order\n");
+			//ft_printf("Error\n");
+			//ft_printf(" is in order\n");
 			exit(-1);
 		}
 		//swap(&stack_a);
@@ -75,8 +77,8 @@ int	main(int argc, char **argv)
 		print_list(stack_a);
 		ft_printf("Stack B: \n");
 		print_list(stack_b);*/
-		reverse_rotate(&stack_a);
-		print_list(stack_a);
+		//reverse_rotate(&stack_a);
+		//print_list(stack_a);
 	}
 	free_list(stack_a);
 	//free_list(stack_b);

@@ -12,58 +12,21 @@
 
 #include "push_swap.h"
 
-int	validating_int(long nbr)
+int is_in_order(t_stack *stack)
 {
-	if (nbr > 2147483647 || nbr < -2147483648)
-		return (-1);
-	return (0);
-}
+	t_stack *current;
 
-int	has_duplicate(t_stack *stack, int nbr)
-{
-	t_stack	*current;
-
-	current = stack;
-	while (current != NULL)
+    current = stack;
+    while (current != NULL && current->next != NULL)
 	{
-		if (current->data == nbr)
-			return (1);	
-		current = current->next;	
-	}
-	return (0);
-}
-
-int	transform_input(char *str)
-{
-	long	nbr;
-
-	nbr = ft_atoi(str);
-	ft_printf("%d\n", nbr);	
-	return (nbr);
-}
-
-
-int	param_check(char *str)
-{
-	long	nbr;
-	char	*to_check;
-	int	i;
-
-	i = 0;
-	to_check = str;
-	if (to_check[i] == '+' || to_check[i] == '-')
-		to_check++;
-	if (ft_isdigit(to_check[i]) == 0)
-	{
-		ft_printf("is not digit");
-		ft_printf("Error\n");
-		exit(-1);
-	}
-	nbr = transform_input(str);
-	if (validating_int(nbr) == -1)
-	{
-		ft_printf("int max or min");
-		ft_printf("Error\n");
-	}
-	return (nbr);
+       // ft_printf("Current element: %d, Next element: %d\n", current->data, current->next->data);
+        if (current->data > current->next->data) 
+		{
+         //   ft_printf("Found element out of order: %d > %d\n", current->data, current->next->data);
+            return (0);
+        }
+        current = current->next;
+    }
+    //ft_printf("All elements are in order\n");
+    return (1);
 }
