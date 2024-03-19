@@ -28,11 +28,10 @@ typedef struct s_stack
     struct s_stack *next;
 }   t_stack;
 
-int	param_check(char *str);
-int	transform_input(char *str);
-//int	validating_int(long nbr);
+int	param_check(int flag, char *str);
 int	has_duplicate(t_stack *stack, int nbr);
 int is_in_order(t_stack *stack);
+void	errors_exit(int flag, char *str);
 void	free_list(t_stack *stack);
 void    swap(t_stack **stack);
 void	print_list(t_stack *stack);

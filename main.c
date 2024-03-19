@@ -50,10 +50,9 @@ int	main(int argc, char **argv)
 	}
 	if (argc >= 2)
 	{
-		
 		while (argv[i])
 		{
-			nbr = param_check(argv[i]);
+			nbr = param_check(argc == 2, argv[i]);
 			if ((has_duplicate(stack_a, nbr)) == 0)
 			{
 				t_stack	*new_node = (t_stack *)malloc(sizeof(t_stack));

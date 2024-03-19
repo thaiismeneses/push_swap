@@ -12,13 +12,6 @@
 
 #include "push_swap.h"
 
-/*int	validating_int(long nbr)
-{
-	if (nbr > INT_MAX || nbr < INT_MIN)
-		return (-1);
-	return (0);
-}*/
-
 int	has_duplicate(t_stack *stack, int nbr)
 {
 	t_stack	*current;
@@ -33,17 +26,15 @@ int	has_duplicate(t_stack *stack, int nbr)
 	return (0);
 }
 
-int	transform_input(char *str)
+void	errors_exit(int flag, char *str)
 {
-	long	nbr;
-
-	nbr = ft_atol(str);
-	ft_printf("%d\n", nbr);	
-	return (nbr);
+	if (flag == 1)
+		free(str);
+	ft_printf("Error\n");
+	exit(-1);
 }
 
-
-int	param_check(char *str)
+int	param_check(int flag, char *str)
 {
 	long	nbr;
 	char	*to_check;
@@ -53,18 +44,14 @@ int	param_check(char *str)
 	to_check = str;
 	if (to_check[i] == '+' || to_check[i] == '-')
 		to_check++;
-	if (ft_isdigit(to_check[i]) == 0)
+	while (to_check[i] != '\0')
 	{
-		ft_printf("is not digit");
-		ft_printf("Error\n");
-		exit(-1);
+		if (ft_isdigit(to_check[i]) == 0)
+			errors_exit(flag, str);
+		i++;
 	}
-	nbr = transform_input(str);
+	nbr = ft_atol(str);
 	if (nbr > INT_MAX || nbr < INT_MIN)
-	{
-		ft_printf("int max or min");
-		ft_printf("Error\n");
-	}
-	free(str);
+		errors_exit(flag, str);
 	return (nbr);
 }
