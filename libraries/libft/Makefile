@@ -6,7 +6,7 @@
 #    By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/04 11:43:56 by thfranco          #+#    #+#              #
-#    Updated: 2024/03/09 14:07:25 by thfranco         ###   ########.fr        #
+#    Updated: 2024/03/19 17:43:31 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS =		ft_isalpha.c			ft_isdigit.c		ft_isalnum.c	\
 		ft_itoa.c			ft_strmapi.c		ft_striteri.c	\
 		ft_putchar_fd.c			ft_putstr_fd.c		ft_putendl_fd.c	\
 		ft_putnbr_fd.c			ft_count_words.c	get_next_line.c \
-		get_next_line_utils.c\
+		get_next_line_utils.c		ft_atol.c \
 
 BONUS = ft_lstnew_bonus.c			ft_lstadd_front_bonus.c			\
 		ft_lstsize_bonus.c		ft_lstlast_bonus.c			\

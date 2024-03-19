@@ -12,12 +12,12 @@
 
 #include "push_swap.h"
 
-int	validating_int(long nbr)
+/*int	validating_int(long nbr)
 {
-	if (nbr > 2147483647 || nbr < -2147483648)
+	if (nbr > INT_MAX || nbr < INT_MIN)
 		return (-1);
 	return (0);
-}
+}*/
 
 int	has_duplicate(t_stack *stack, int nbr)
 {
@@ -37,7 +37,7 @@ int	transform_input(char *str)
 {
 	long	nbr;
 
-	nbr = ft_atoi(str);
+	nbr = ft_atol(str);
 	ft_printf("%d\n", nbr);	
 	return (nbr);
 }
@@ -60,10 +60,11 @@ int	param_check(char *str)
 		exit(-1);
 	}
 	nbr = transform_input(str);
-	if (validating_int(nbr) == -1)
+	if (nbr > INT_MAX || nbr < INT_MIN)
 	{
 		ft_printf("int max or min");
 		ft_printf("Error\n");
 	}
+	free(str);
 	return (nbr);
 }

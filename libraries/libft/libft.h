@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 11:43:37 by thfranco          #+#    #+#             */
-/*   Updated: 2024/02/20 11:07:36 by thafranco        ###   ########.fr       */
+/*   Updated: 2024/03/19 17:39:45 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_isprint(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-long	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
+long	ft_atol(const char *str);
 int		ft_count_words(char const *s, char c);
 size_t	ft_strlen(const char *str);
 void	ft_putchar_fd(char c, int fd);

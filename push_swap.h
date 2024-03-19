@@ -18,6 +18,10 @@
 # include "libraries/ft_printf/ft_printf.h"
 # include <stdlib.h>
 
+# define INT_MAX 2147483647
+# define INT_MIN -2147483648
+
+
 typedef struct s_stack
 {
     int data;
@@ -26,7 +30,7 @@ typedef struct s_stack
 
 int	param_check(char *str);
 int	transform_input(char *str);
-int	validating_int(long nbr);
+//int	validating_int(long nbr);
 int	has_duplicate(t_stack *stack, int nbr);
 int is_in_order(t_stack *stack);
 void	free_list(t_stack *stack);

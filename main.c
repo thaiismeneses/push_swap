@@ -43,7 +43,12 @@ int	main(int argc, char **argv)
 	i = 1;
 	if (argc < 2)
 		exit (-1);
-	else
+	if (argc == 2)
+	{
+		argv = ft_split(argv[i], ' ');
+		i--;
+	}
+	if (argc >= 2)
 	{
 		
 		while (argv[i])
@@ -81,6 +86,7 @@ int	main(int argc, char **argv)
 		//print_list(stack_a);
 	}
 	free_list(stack_a);
+	free(argv);
 	//free_list(stack_b);
 	return(0);
 }
