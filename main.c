@@ -33,7 +33,7 @@ void	print_list(t_stack *stack)
 	current = stack;
 	while (current != NULL)
 	{
-		ft_printf("swap: %d\n", current->data);
+		ft_printf("%d\n", current->data);
 		current = current->next;
 	}
 }
@@ -75,8 +75,9 @@ int	main(int argc, char **argv)
 		if(is_in_order(stack_a) == 1)
 		{
 			free_list(stack_a);
-			errors_exit(0, argv[i]);
+			exit (-1);
 		}
+		sort(stack_a);
 	}
 	free_list(stack_a);
 	return(0);

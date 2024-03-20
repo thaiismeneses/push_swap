@@ -26,3 +26,18 @@ int	is_in_order(t_stack *stack)
 	return (1);
 }
 
+
+
+void    sort(t_stack *stack)
+{
+    int size;
+
+    size = ft_lstsize((t_list *) stack);
+    if (size == 2)
+        sa(&stack);
+    if (size == 3)
+    {
+       /**TO DO*/
+    }
+    print_list(stack);
+}
