@@ -20,8 +20,8 @@ int	has_duplicate(t_stack *stack, int nbr)
 	while (current != NULL)
 	{
 		if (current->data == nbr)
-			return (1);	
-		current = current->next;	
+			return (1);
+		current = current->next;
 	}
 	return (0);
 }
@@ -38,7 +38,7 @@ int	param_check(int flag, char *str)
 {
 	long	nbr;
 	char	*to_check;
-	int	i;
+	int		i;
 
 	i = 0;
 	to_check = str;
