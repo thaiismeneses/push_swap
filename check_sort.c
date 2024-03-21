@@ -37,7 +37,15 @@ void    sort(t_stack *stack)
         sa(&stack);
     if (size == 3)
     {
-       /**TO DO*/
-    }
+		if ((stack->data < stack->next->data) &&
+			(stack->next->data > stack->next->next->data))
+			rra(&stack);
+		else if ((stack->data > stack->next->data) &&
+			(stack->data > stack->next->next->data))
+			ra(&stack);
+		if ((stack->data > stack->next->data) && (
+			stack->next->data < stack->next->next->data))
+			sa(&stack);
+	}
     print_list(stack);
 }
