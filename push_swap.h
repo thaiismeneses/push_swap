@@ -49,7 +49,12 @@ void	rr(t_stack **stack_a, t_stack **stack_b);
 void	rra(t_stack **stack_a);
 void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
-void    sort(t_stack *stack);
+void    sort(t_stack *stack_a);
+void	sort_three(t_stack **stack);
+void	find_min(t_stack **stack_a, t_stack **stack_b);
+//void	update_stack(t_stack **stack_a, int to_push);
+void	sort_four(t_stack *stack_a, t_stack *stack_b);
+
 
 
 #endif

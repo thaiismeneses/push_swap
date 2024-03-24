@@ -26,7 +26,7 @@ void	swap(t_stack **stack)
 	(*stack)->next->data = temp;
 }
 
-void	add_node(t_stack **stack, int data)
+/*void	add_node(t_stack **stack, int data)
 {
 	t_stack	*new_node;
 
@@ -39,7 +39,7 @@ void	add_node(t_stack **stack, int data)
 	new_node->data = data;
 	new_node->next = *stack;
 	*stack = new_node;
-}
+}*/
 
 void	push(t_stack **stack_src, t_stack **stack_dest)
 {
@@ -48,7 +48,7 @@ void	push(t_stack **stack_src, t_stack **stack_dest)
 	temp = (*stack_src);
 	(*stack_src) = (*stack_src)->next;
 	temp->next = (*stack_dest);
-	(*stack_dest) = (temp);
+	(*stack_dest) = temp;
 }
 
 void	rotate(t_stack **stack)

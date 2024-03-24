@@ -43,8 +43,10 @@ int	main(int argc, char **argv)
 	int			i;
 	int			nbr;
 	t_stack		*stack_a;
+	t_stack		*stack_b;
 
 	stack_a = NULL;
+	stack_b = NULL;
 	i = 1;
 	if (argc < 2)
 		exit (-1);
@@ -77,8 +79,10 @@ int	main(int argc, char **argv)
 			free_list(stack_a);
 			exit (-1);
 		}
-		sort(stack_a);
+		//sort(stack_a);
+		sort_four(stack_a, stack_b);
 	}
 	free_list(stack_a);
+	free_list(stack_b);
 	return(0);
 }
