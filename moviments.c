@@ -21,25 +21,10 @@ void	swap(t_stack **stack)
 		ft_printf("Error\n");
 		exit(-1);
 	}
-	temp = (*stack)->data;
-	(*stack)->data = (*stack)->next->data;
-	(*stack)->next->data = temp;
+	temp = (*stack)->nbr;
+	(*stack)->nbr = (*stack)->next->nbr;
+	(*stack)->next->nbr = temp;
 }
-
-/*void	add_node(t_stack **stack, int data)
-{
-	t_stack	*new_node;
-
-	new_node = (t_stack *)malloc(sizeof(t_stack));
-	if (new_node == NULL)
-	{
-		ft_printf("Memory allocation failed\n");
-		exit(-1);
-	}
-	new_node->data = data;
-	new_node->next = *stack;
-	*stack = new_node;
-}*/
 
 void	push(t_stack **stack_src, t_stack **stack_dest)
 {

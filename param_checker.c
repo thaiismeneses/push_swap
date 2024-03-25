@@ -19,7 +19,7 @@ int	has_duplicate(t_stack *stack, int nbr)
 	current = stack;
 	while (current != NULL)
 	{
-		if (current->data == nbr)
+		if (current->nbr == nbr)
 			return (1);
 		current = current->next;
 	}

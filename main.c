@@ -33,7 +33,7 @@ void	print_list(t_stack *stack)
 	current = stack;
 	while (current != NULL)
 	{
-		ft_printf("%d\n", current->data);
+		ft_printf("%d\n", current->nbr);
 		current = current->next;
 	}
 }
@@ -61,12 +61,7 @@ int	main(int argc, char **argv)
 		{
 			nbr = param_check(argc == 2, argv[i]);
 			if ((has_duplicate(stack_a, nbr)) == 0)
-			{
-				t_stack	*new_node = (t_stack *)malloc(sizeof(t_stack));
-				new_node->data = nbr;
-				new_node->next = NULL;
-				ft_lstadd_back((t_list **)&stack_a, (t_list *)new_node);
-			}
+				add_node(&stack_a, nbr);
 			else
 			{
 				free_list(stack_a);
@@ -74,15 +69,19 @@ int	main(int argc, char **argv)
 			}
 			i++;
 		}
-		if(is_in_order(stack_a) == 1)
+		if (is_in_order(stack_a) == 1)
 		{
 			free_list(stack_a);
 			exit (-1);
 		}
-		//sort(stack_a);
-		sort_four(stack_a, stack_b);
-	}
+		sort(&stack_a, &stack_b);
+		ft_printf("Stack a:\n");
+		print_list(stack_a);
+		ft_printf("Stack b:\n");
+		print_list(stack_b); 
+	 } 
 	free_list(stack_a);
-	free_list(stack_b);
+	//free_list(stack_b);
 	return(0);
 }
+

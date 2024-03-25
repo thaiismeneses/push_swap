@@ -13,6 +13,7 @@
 NAME		:= push_swap
 
 SRCS		:= main.c\
+				list.c\
 				param_checker.c\
 				check_sort.c\
 				moviments.c\
