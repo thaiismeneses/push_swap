@@ -35,6 +35,42 @@ int	lst_size(t_stack *stack)
 	return (i);
 }
 
+t_stack	*find_node_min(t_stack **stack)
+{
+	t_stack	*min_node;
+	int	min_value;
+
+	min_value = INT_MAX;
+	while ((*stack))
+	{
+		if ((*stack)->nbr < min_value)
+		{
+			min_value =(*stack)->nbr;
+			min_node =(*stack);
+		}
+		(*stack) = (*stack)->next;
+	}
+	return (min_node);
+}
+
+t_stack	*find_node_max(t_stack **stack)
+{
+	t_stack	*max_node;
+	int	max_value;
+
+	max_value = INT_MIN;
+	while ((*stack))
+	{
+		if ((*stack)->nbr < max_value)
+		{
+			max_value =(*stack)->nbr;
+			max_node =(*stack);
+		}
+		(*stack) = (*stack)->next;
+	}
+	return (max_node);
+}
+
 void	add_node(t_stack **stack, int nbr)
 {
 	t_stack	*new_node;

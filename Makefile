@@ -20,12 +20,15 @@ SRCS		:= main.c\
 				operations_a.c\
 				operations_b.c\
 				operations_both.c\
+				a_treating_nodes.c\
+				b_treating_nodes.c\
+				sort.c\
 
 OBJS		:= $(SRCS: .c=.o)
 
 CC		:= cc
 
-FLAGS		:= -Wall -Wextra -Werror -g
+FLAGS		:= -Wall -Wextra -Werror -g -fsanitize=address
 
 LIBS		:= libraries/libft/libft.a  libraries/ft_printf/libftprintf.a
 

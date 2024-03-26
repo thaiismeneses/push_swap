@@ -69,19 +69,18 @@ int	main(int argc, char **argv)
 			}
 			i++;
 		}
-		if (is_in_order(stack_a) == 1)
+		if (is_in_order(stack_a))
 		{
 			free_list(stack_a);
 			exit (-1);
 		}
-		sort(&stack_a, &stack_b);
-		ft_printf("Stack a:\n");
+		ft_printf("Stack A:\n");
 		print_list(stack_a);
-		ft_printf("Stack b:\n");
-		print_list(stack_b); 
+		sort(&stack_a, &stack_b);
+		ft_printf("Stack A:\n");
+		print_list(stack_a);
 	 } 
 	free_list(stack_a);
-	//free_list(stack_b);
 	return(0);
 }
 

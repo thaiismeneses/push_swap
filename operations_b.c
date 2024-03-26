@@ -12,26 +12,30 @@
 
 #include "push_swap.h"
 
-void	sb(t_stack **stack_b)
+void	sb(t_stack **stack_b, t_bool print)
 {
 	swap(stack_b);
-	ft_printf("sb\n");
+	if (!print)
+		ft_printf("sb\n");
 }
 
-void	pb(t_stack **stack_a, t_stack **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b, t_bool print)
 {
 	push(stack_a, stack_b);
-	ft_printf("pb\n");
+	if (!print)
+		ft_printf("pb\n");
 }
 
-void	rb(t_stack **stack_b)
+void	rb(t_stack **stack_b, t_bool print)
 {
 	rotate(stack_b);
-	ft_printf("rb\n");
+	if (!print)
+		ft_printf("rb\n");
 }
 
-void	rrb(t_stack **stack_b)
+void	rrb(t_stack **stack_b, t_bool print)
 {
 	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
+	if (!print)
+		ft_printf("rrb\n");
 }
