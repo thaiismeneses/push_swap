@@ -28,7 +28,7 @@ OBJS		:= $(SRCS: .c=.o)
 
 CC		:= cc
 
-FLAGS		:= -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS		:= -Wall -Wextra -Werror -g -fsanitize=address 
 
 LIBS		:= libraries/libft/libft.a  libraries/ft_printf/libftprintf.a
 

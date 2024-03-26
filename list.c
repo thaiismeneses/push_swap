@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap.h" 
 
 t_stack	*last_from_list(t_stack *stack)
 {

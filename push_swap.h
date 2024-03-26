@@ -97,5 +97,4 @@ t_stack		*get_cheapest(t_stack *stack);
 void	move_a_to_b(t_stack **stack_a, t_stack **stack_b);
 void	move_b_to_a(t_stack **stack_a, t_stack **stack_b);
 void	min_on_top(t_stack **stack_a);
-
 #endif
