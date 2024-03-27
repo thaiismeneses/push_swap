@@ -48,7 +48,7 @@ void	sort_more_than_three(t_stack **stack_a, t_stack **stack_b)
 		pb(stack_b, stack_b, false);
 	if (len_a-- > 3 && !is_in_order(*stack_a))
 		pb(stack_b, stack_b, false);
-	while (len_a-- >3 && !is_in_order(*stack_a))
+	while (len_a-- > 3 && !is_in_order(*stack_a))
 	{
 		start_nodes_a(stack_a, stack_b);
 		move_a_to_b(stack_a, stack_b);
@@ -68,6 +68,7 @@ void    sort(t_stack **stack_a, t_stack **stack_b)
 {
     int len_a;
 
+	(void)stack_b;
     len_a = lst_size(*stack_a);
 	ft_printf("size:%d \n", len_a);
     if (len_a == 2)

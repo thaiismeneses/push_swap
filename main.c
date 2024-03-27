@@ -79,6 +79,8 @@ int	main(int argc, char **argv)
 		sort(&stack_a, &stack_b);
 		ft_printf("Stack A:\n");
 		print_list(stack_a);
+		ft_printf("Stack B:\n");
+		print_list(stack_b);
 	 } 
 	free_list(stack_a);
 	return(0);
