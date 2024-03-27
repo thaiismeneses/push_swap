@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 17:39:00 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/20 11:34:59 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/27 12:00:00 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	rotate(t_stack **stack)
 {
 	t_stack	*last;
 
-	if(!*stack || !(*stack)->next)
+	if (!*stack || !(*stack)->next)
 		return ;
 	last = last_from_list(*stack);
 	last->next = (*stack);
@@ -66,8 +66,8 @@ void	rotate(t_stack **stack)
 void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*last;
-	
-	if(!*stack || !(*stack)->next)
+
+	if (!*stack || !(*stack)->next)
 		return ;
 	last = last_from_list(*stack);
 	last->prev->next = NULL;

@@ -6,24 +6,28 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 11:24:05 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/20 13:22:20 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/27 12:13:33 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_list(t_stack *stack)
+void	free_list(t_stack **stack)
 {
 	t_stack	*current;
 	t_stack	*temp;
 
-	current = stack;
-	while (current != NULL)
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
 	{
-		temp = current;
-		current = current->next;
-		free(temp);
+		temp = current->next;
+		current->nbr = 0;
+		free(current);
+		current = temp;
 	}
+	*stack = NULL;
 }
 
 void	print_list(t_stack *stack)
@@ -37,6 +41,7 @@ void	print_list(t_stack *stack)
 		current = current->next;
 	}
 }
+
 
 int	main(int argc, char **argv)
 {
@@ -64,24 +69,27 @@ int	main(int argc, char **argv)
 				add_node(&stack_a, nbr);
 			else
 			{
-				free_list(stack_a);
+				free_list(&stack_a);
 				errors_exit(0, argv[i]);
 			}
 			i++;
 		}
-		if (is_in_order(stack_a))
+		ft_printf("Stack A:\n");
+		print_list(stack_a);
+		if (!is_in_order(stack_a))
 		{
-			free_list(stack_a);
-			exit (-1);
+			if (lst_size(stack_a) == 2)
+				sa(&stack_a, false);
+			else if (lst_size(stack_a) == 3)
+				sort_three(&stack_a);
+			else
+				sort_more_than_three(&stack_a, &stack_b);
+			ft_printf("Stack A:\n");
+			print_list(stack_a);
+			ft_printf("Stack B:\n");
+			print_list(stack_b);
 		}
-		ft_printf("Stack A:\n");
-		print_list(stack_a);
-		sort(&stack_a, &stack_b);
-		ft_printf("Stack A:\n");
-		print_list(stack_a);
-		ft_printf("Stack B:\n");
-		print_list(stack_b);
-	 } 
-	free_list(stack_a);
-	return(0);
+		free_list(&stack_a);
+		return(0);
+	}
 }
