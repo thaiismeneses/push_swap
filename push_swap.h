@@ -40,11 +40,12 @@ typedef struct s_stack
 }	t_stack;
 
 //check params and sintax
-int		param_check(int flag, char *str);
+void		param_check(int flag, char **argv, t_stack **stack);
 int		has_duplicate(t_stack *stack, int nbr);
 t_bool	is_in_order(t_stack *stack);
-void	errors_exit(int flag, char *str);
+void	errors_exit(int flag, char **str, t_stack **stack);
 void	handle_arguments(int argc, char **argv, t_stack **stack_a);
+void	final_free(int flag, t_stack **a, char **av);
 
 //dealing with lists
 int		lst_size(t_stack *stack);

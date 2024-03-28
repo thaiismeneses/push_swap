@@ -26,33 +26,49 @@ int	has_duplicate(t_stack *stack, int nbr)
 	return (0);
 }
 
-void	errors_exit(int flag, char *str)
+void	errors_exit(int flag, char **str, t_stack **stack)
 {
-	if (flag == 1)
-		free(str);
+	int  i;
+
+	i = 0;
+	if (flag)
+	{
+		while (str[i])
+		{
+			free(str[i]);
+			i++;
+		}
+		free (str);
+	}
+	free_list(stack);
 	ft_printf("Error\n");
 	exit(-1);
 }
 
-int	param_check(int flag, char *str)
+
+void	param_check(int flag, char **argv, t_stack **stack)
 {
 	long	nbr;
 	char	*to_check;
 	int		i;
+	int 	j;
 
 	i = 0;
-	to_check = str;
-	if (to_check[i] == '+' || to_check[i] == '-')
-		to_check++;
-	while (to_check[i] != '\0')
+	while (argv[i])
 	{
-		if (ft_isdigit(to_check[i]) == 0)
-			errors_exit(flag, str);
+		j = 0;
+		to_check = argv[i];
+		if (to_check[j] == '+' || to_check[j] == '-')
+			to_check++;
+		while (to_check[j] != '\0')
+		{
+			if (ft_isdigit(to_check[j]) == 0)
+				errors_exit(flag, argv, stack);
+			j++;
+		}
+		nbr = ft_atol(argv[i]);
+		if (nbr > INT_MAX || nbr < INT_MIN)
+			errors_exit(flag, argv, stack);
 		i++;
 	}
-	nbr = ft_atol(str);
-	if (nbr > INT_MAX || nbr < INT_MIN)
-		errors_exit(flag, str);
-	free(str);
-	return (nbr);
 }
