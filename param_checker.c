@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:49:44 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/27 12:04:00 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/28 15:39:15 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	has_duplicate(t_stack *stack, int nbr)
 
 void	errors_exit(int flag, char **str, t_stack **stack)
 {
-	int  i;
+	int	i;
 
 	i = 0;
 	if (flag)
@@ -38,20 +38,19 @@ void	errors_exit(int flag, char **str, t_stack **stack)
 			free(str[i]);
 			i++;
 		}
-		free (str);
+		free(str);
 	}
 	free_list(stack);
 	ft_printf("Error\n");
 	exit(-1);
 }
 
-
 void	param_check(int flag, char **argv, t_stack **stack)
 {
 	long	nbr;
 	char	*to_check;
 	int		i;
-	int 	j;
+	int		j;
 
 	i = 0;
 	while (argv[i])

@@ -92,7 +92,6 @@ int	main(int argc, char **argv)
 		argv = ft_split(argv[1], ' ');
 	else
 		argv++;
-	ft_printf("argc: %d\n", argc);
 	handle_arguments(argc, argv, &stack_a);
 	if (!is_in_order(stack_a))
 	{
