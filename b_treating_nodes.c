@@ -20,20 +20,20 @@ void	set_target_b(t_stack	*stack_a, t_stack *stack_b)
 
 	while (stack_b)
 	{
-		best_match_index = INT_MIN;
+		best_match_index = INT_MAX;
 		current_a = stack_a;
 		while (current_a)
 		{
-			if (current_a->nbr < stack_b->nbr
-				&& current_a->nbr > best_match_index)
+			if (current_a->nbr > stack_b->nbr
+				&& current_a->nbr < best_match_index)
 			{
 				best_match_index = current_a->nbr;
 				target_node = current_a;
 			}
 			current_a = current_a->next;
 		}
-		if (best_match_index == INT_MIN)
-			stack_b->target_node = find_node_max(stack_a);
+		if (best_match_index == INT_MAX)
+			stack_b->target_node = find_node_min(stack_a);
 		else
 			stack_b->target_node = target_node;
 		stack_b = stack_b->next;

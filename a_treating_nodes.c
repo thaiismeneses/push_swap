@@ -73,13 +73,10 @@ void	cost_analysis_a(t_stack *stack_a, t_stack *stack_b)
 		stack_a->push_cost = stack_a->index;
 		if (!(stack_a->above_median))
 			stack_a->push_cost = len_a - (stack_a->index);
-		if (stack_a->target_node)
-		{
-			if (stack_a->target_node->above_median)
-				stack_a->push_cost += stack_a->target_node->index;
-			else
-				stack_a->push_cost += len_b - (stack_a->target_node->index);
-		}
+		if (stack_a->target_node->above_median)
+			stack_a->push_cost += stack_a->target_node->index;
+		else
+			stack_a->push_cost += len_b - (stack_a->target_node->index);
 		stack_a = stack_a->next;
 	}
 }
@@ -89,6 +86,8 @@ void	set_cheapest(t_stack *stack)
 	int			cheapest_value;
 	t_stack		*cheapest_node;
 
+	if (!stack)
+		return ;
 	cheapest_value = INT_MAX;
 	while (stack)
 	{
@@ -99,8 +98,7 @@ void	set_cheapest(t_stack *stack)
 		}
 		stack = stack->next;
 	}
-	if (cheapest_node)
-		cheapest_node->lowest = true;
+	cheapest_node->lowest = true;
 }
 
 void	start_nodes_a(t_stack *stack_a, t_stack *stack_b)

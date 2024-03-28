@@ -64,7 +64,7 @@ t_stack	*find_node_max(t_stack *stack)
 	max_value = INT_MIN;
 	while (stack)
 	{
-		if (stack->nbr < max_value)
+		if (stack->nbr > max_value)
 		{
 			max_value = stack->nbr;
 			max_node = stack;

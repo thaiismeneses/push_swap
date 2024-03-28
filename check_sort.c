@@ -61,17 +61,3 @@ void	sort_more_than_three(t_stack **stack_a, t_stack **stack_b)
 	current_index(*stack_a);
 	min_on_top(stack_a);
 }
-
-/*void	sort(t_stack **stack_a, t_stack **stack_b)
-{
-	if (!is_in_order(*stack_a))
-	{
-		if (lst_size(*stack_a) == 2)
-			sa(stack_a, false);
-		else if (lst_size(*stack_a) == 3)
-			sort_three(stack_a);
-		else
-			sort_more_than_three(stack_a, stack_b);
-	}
-}
-*/

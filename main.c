@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 		exit (-1);
 	if (argc == 2)
 	{
-		argv = ft_split(argv[i], ' ');
+		argv = ft_split(argv[1], ' ');
 		i--;
 	}
 	if (argc >= 2)
@@ -74,8 +74,6 @@ int	main(int argc, char **argv)
 			}
 			i++;
 		}
-		ft_printf("Stack A:\n");
-		print_list(stack_a);
 		if (!is_in_order(stack_a))
 		{
 			if (lst_size(stack_a) == 2)
@@ -84,10 +82,6 @@ int	main(int argc, char **argv)
 				sort_three(&stack_a);
 			else
 				sort_more_than_three(&stack_a, &stack_b);
-			ft_printf("Stack A:\n");
-			print_list(stack_a);
-			ft_printf("Stack B:\n");
-			print_list(stack_b);
 		}
 		free_list(&stack_a);
 		return(0);
