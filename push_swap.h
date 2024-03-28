@@ -25,10 +25,7 @@ typedef enum e_bool
 {
 	false,
 	true,
-}t_bool;
-
-//# define FALSE 0
-//# define TRUE 1
+}	t_bool;
 
 typedef struct s_stack
 {
@@ -47,7 +44,7 @@ int		param_check(int flag, char *str);
 int		has_duplicate(t_stack *stack, int nbr);
 t_bool	is_in_order(t_stack *stack);
 void	errors_exit(int flag, char *str);
-
+void	handle_arguments(int argc, char **argv, t_stack **stack_a);
 
 //dealing with lists
 int		lst_size(t_stack *stack);

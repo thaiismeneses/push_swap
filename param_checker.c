@@ -53,5 +53,6 @@ int	param_check(int flag, char *str)
 	nbr = ft_atol(str);
 	if (nbr > INT_MAX || nbr < INT_MIN)
 		errors_exit(flag, str);
+	free(str);
 	return (nbr);
 }

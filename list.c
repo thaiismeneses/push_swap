@@ -38,7 +38,7 @@ t_stack	*find_node_min(t_stack *stack)
 {
 	t_stack		*min_node;
 	int			min_value;
-	
+
 	if (!stack)
 		return (NULL);
 	min_value = INT_MAX;
