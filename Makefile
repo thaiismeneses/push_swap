@@ -6,29 +6,31 @@
 #    By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/13 11:52:31 by thfranco          #+#    #+#              #
-#    Updated: 2024/03/13 14:05:23 by thfranco         ###   ########.fr        #
+#    Updated: 2024/04/03 12:39:46 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= push_swap
 
-SRCS		:= main.c\
-				list.c\
-				param_checker.c\
-				check_sort.c\
-				moviments.c\
-				operations_a.c\
-				operations_b.c\
-				operations_both.c\
-				a_treating_nodes.c\
-				b_treating_nodes.c\
-				sort.c\
+SRCS		:= 	main.c \
+				list.c \
+				sort.c \
+				param_checker.c \
+				check_sort.c \
+				moviments.c \
+				operations_a.c \
+				operations_b.c \
+				operations_both.c \
+				a_treating_nodes.c \
+				b_treating_nodes.c \
 
-OBJS		:= $(SRCS: .c=.o)
+				
+
+OBJS		:= $(SRCS:.c=.o)
 
 CC		:= cc
 
-FLAGS		:= -Wall -Wextra -Werror -g #-fsanitize=address 
+FLAGS		:= -Wall -Wextra -Werror -g
 
 LIBS		:= libraries/libft/libft.a  libraries/ft_printf/libftprintf.a
 
@@ -53,13 +55,13 @@ clean:
 		@make -s clean -C libraries/ft_printf/
 		@$(RM) $(OBJS)
 
-fclean:
+fclean: clean
 		@echo "Deleting $(NAME)!! ✔️ "
 		@make -s fclean -C libraries/libft/
 		@make -s fclean -C libraries/ft_printf/
-		@$(RM) $(NAME)
+		@$(RM) $(NAME) 
 		@$(RM) $(LIBFT)
-		@$(RM) $(LIBFTPRINT)
+		@$(RM) $(LIBFTPRINT) 
 
 re:		fclean all
 
