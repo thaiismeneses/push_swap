@@ -13,11 +13,11 @@
 - [1. Requirements](#1-requirements)
 - [2. How to execute the program](#2-How-to-execute-the-program)
 - [3. Running Makefile](#3-running-makefile)
-- [4. Visualizer](#4-visualizer)
 
-# 0. Description 
 
-This project will make you sort data on a stack, with a limited set of instructions, using the lowest possible number of actions. 
+# 0. Description
+
+This project will make you sort data on a stack, with a limited set of instructions, using the lowest possible number of actions.
 
 You have at your disposal a set of integer values, 2 stacks, and a set of instructions to manipulate both stacks.
 
@@ -69,16 +69,7 @@ $> make all
 # Execute valgrind. Will check memory leaks
 $> make leak
 
-# will run norminette 
+# will run norminette
 $> make norma
 
 ```
-
-# 4. Visualizer
-
-<p align="center">
-  <a href="">
-    <img src="img/img_1.png" alt="map_1">
-  </a>
-</p>
-
